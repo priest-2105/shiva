@@ -1,6 +1,4 @@
 import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 // I'm using a simple approach without cva for now since I didn't install class-variance-authority yet.
@@ -10,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 export interface ButtonProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: "primary" | "secondary" | "ghost" | "destructive"
+    variant?: "primary" | "secondary" | "ghost" | "destructive" | "outline"
     size?: "sm" | "md" | "lg"
     asChild?: boolean
 }
@@ -19,12 +17,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant = "primary", size = "md", asChild = false, ...props }, ref) => {
         const Comp = "button"
 
-        const baseStyles = "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+        const baseStyles = "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer"
 
         const variants = {
             primary: "bg-primary text-white hover:bg-primary-hover border border-transparent shadow-sm",
             secondary: "bg-secondary text-foreground hover:bg-black/5 dark:hover:bg-white/10",
-            outline: "border border-input bg-background hover:bg-secondary hover:text-accent-foreground",
+            outline: "border border-input bg-background hover:bg-black hover:text-white transition-colors duration-200",
             ghost: "hover:bg-accent hover:text-accent-foreground",
             destructive: "bg-tertiary text-white hover:bg-tertiary/90",
         }
