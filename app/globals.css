@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --primary: #FF6B35;       /* Burnt Orange */
+  --primary-hover: #FF9A76; /* Soft Coral */
+  --secondary: #E0E0E0;     /* Light Gray */
+  --tertiary: #D64536;      /* Deep Red */
+
+  /* Backgrounds */
+  --background: #FAFAFA;    /* Off-White */
+  --card-bg: #FFFFFF;       /* White */
+
+  /* Text */
+  --foreground: #1A1A1A;    /* Charcoal */
+  --text-secondary: #555555;/* Dark Gray */
+  --text-accent: #FF6B35;   /* Burnt Orange */
+
+  /* Borders */
+  --border: #E0E0E0;        /* Light Gray */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1A1A1A;     /* Charcoal */
+    --card-bg: #242424;        /* Slightly lighter charcoal */
+    --foreground: #FAFAFA;     /* Off-White */
+    --text-secondary: #A0A0A0; /* Lighter Gray */
+    --border: #333333;         /* Darker Gray */
+    
+    /* Adjust primary for dark mode if needed, but Burnt Orange usually pops well */
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-card-bg: var(--card-bg);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-accent: var(--text-accent);
+  --color-border: var(--border);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-ibm-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
 }
