@@ -52,19 +52,7 @@ export function ChatSidebar() {
                 </div>
             </div>
 
-            {/* Footer / User Settings */}
-            <div className="p-4 border-t border-border mt-auto">
-                <div className="space-y-1">
-                    <Button variant="ghost" className="w-full justify-start gap-2 px-2">
-                        <Settings className="w-4 h-4 text-text-secondary" />
-                        <span>Settings</span>
-                    </Button>
-                    <Button variant="ghost" className="w-full justify-start gap-2 px-2 text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10">
-                        <LogOut className="w-4 h-4" />
-                        <span>Sign Out</span>
-                    </Button>
-                </div>
-            </div>
+            {/* Footer deleted as per new requirements */}
         </div>
     );
 }

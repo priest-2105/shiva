@@ -1,4 +1,5 @@
 import { ChatSidebar } from "@/components/chat/ChatSidebar";
+import { ChatHeader } from "@/components/chat/ChatHeader";
 
 export default function ChatLayout({
     children,
@@ -14,13 +15,7 @@ export default function ChatLayout({
 
             {/* Main Content Area */}
             <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
-                {/* Simple Header (Mobile toggle can go here later) */}
-                <header className="h-14 border-b border-border flex items-center justify-between px-4 md:hidden">
-                    <span className="font-semibold text-lg">Shiva</span>
-                    {/* Mobile Menu Button Placeholder */}
-                    <button className="text-text-secondary">Menu</button>
-                </header>
-
+                <ChatHeader />
                 {children}
             </main>
         </div>

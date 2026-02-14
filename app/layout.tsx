@@ -23,12 +23,12 @@ export const metadata: Metadata = {
   description: "Constrained frontend compiler powered by AI",
   icons: {
     icon: [
-      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico' },
+      { url: '/favicon-96x96.png', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180' },
+      { url: '/apple-touch-icon.png' },
     ],
   },
   manifest: '/site.webmanifest',
