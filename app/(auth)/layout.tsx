@@ -11,9 +11,9 @@ export default function AuthLayout({
             <div className="hidden md:flex flex-col justify-between bg-zinc-900 text-white p-12 relative overflow-hidden">
                 <div className="z-10">
                     <Image
-                        src="/shiva-ai-logo-lg.svg"
+                        src="/logo.svg"
                         alt="Shiva Logo"
-                        width={150}
+                        width={80}
                         height={40}
                         className="mb-8"
                     />
