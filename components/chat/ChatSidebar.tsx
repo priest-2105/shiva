@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Plus, MessageSquare, Settings, LogOut } from "lucide-react";
+import { Plus, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
@@ -9,7 +9,6 @@ import { usePathname } from "next/navigation";
 export function ChatSidebar() {
     const pathname = usePathname();
 
-    // Mock data for recent chats - will be replaced by real data later
     const recentChats = [
         { id: "1", title: "Landing Page Design", date: "Today" },
         { id: "2", title: "Dashboard Layout", date: "Yesterday" },
@@ -17,7 +16,11 @@ export function ChatSidebar() {
     ];
 
     return (
-        <div className="w-64 flex-shrink-0 border-r border-border bg-gray-50 dark:bg-zinc-900 flex flex-col h-screen">
+        <div className="w-64 flex-shrink-0 flex flex-col h-screen
+            bg-white/50 dark:bg-[rgba(4,16,45,0.6)]
+            backdrop-blur-xl
+            border-r border-blue-200/40 dark:border-blue-900/40">
+
             {/* Header / New Chat */}
             <div className="p-4">
                 <Button className="w-full justify-start gap-2" variant="primary">
@@ -33,26 +36,23 @@ export function ChatSidebar() {
                         Recent
                     </h3>
                 </div>
-                <div className="space-y-1 px-2">
+                <div className="space-y-0.5 px-2">
                     {recentChats.map((chat) => (
                         <Link
                             key={chat.id}
                             href={`/chat/${chat.id}`}
                             className={cn(
-                                "flex items-center gap-3 px-3 py-2 text-sm rounded-md transition-colors",
-                                "hover:bg-secondary/50 text-foreground",
-                                // Highlight active chat - mocking logic for now since we are just on /chat usually
-                                pathname === `/chat/${chat.id}` && "bg-secondary"
+                                "flex items-center gap-3 px-3 py-2 text-sm rounded-md transition-all duration-150",
+                                "hover:bg-blue-100/60 dark:hover:bg-blue-950/40 text-foreground",
+                                pathname === `/chat/${chat.id}` && "bg-blue-100/80 dark:bg-blue-950/60"
                             )}
                         >
-                            <MessageSquare className="w-4 h-4 text-text-secondary" />
+                            <MessageSquare className="w-4 h-4 text-text-secondary shrink-0" />
                             <span className="truncate">{chat.title}</span>
                         </Link>
                     ))}
                 </div>
             </div>
-
-            {/* Footer deleted as per new requirements */}
         </div>
     );
 }

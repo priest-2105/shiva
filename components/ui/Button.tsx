@@ -1,11 +1,6 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-// I'm using a simple approach without cva for now since I didn't install class-variance-authority yet.
-// Wait, I should probably use it or just manual classes for simplicity if I want to stick to the plan strictly.
-// The plan said "none" for automated tests, but didn't explicitly forbid other libs. 
-// However, to keep it simple and strictly follow "standard" manual setup:
-
 export interface ButtonProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: "primary" | "secondary" | "ghost" | "destructive" | "outline"
@@ -17,14 +12,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant = "primary", size = "md", asChild = false, ...props }, ref) => {
         const Comp = "button"
 
-        const baseStyles = "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer"
+        const baseStyles = "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer"
 
         const variants = {
-            primary: "bg-primary text-white hover:bg-primary-hover border border-transparent shadow-sm",
-            secondary: "bg-secondary text-foreground hover:bg-black/5 dark:hover:bg-white/10",
-            outline: "border border-input bg-background hover:bg-black hover:text-white transition-colors duration-200",
-            ghost: "hover:bg-accent hover:text-accent-foreground",
-            destructive: "bg-tertiary text-white hover:bg-tertiary/90",
+            primary: "bg-primary text-white hover:bg-primary-hover shadow-sm shadow-blue-500/20 hover:shadow-blue-400/30",
+            secondary: "bg-blue-50/70 dark:bg-blue-950/40 text-foreground border border-blue-200/40 dark:border-blue-800/30 hover:bg-blue-100/80 dark:hover:bg-blue-950/60 backdrop-blur-sm",
+            outline: "border border-blue-200/60 dark:border-blue-800/40 bg-white/40 dark:bg-blue-950/20 backdrop-blur-sm hover:bg-blue-50/80 dark:hover:bg-blue-950/50 text-foreground transition-colors duration-200",
+            ghost: "hover:bg-blue-100/50 dark:hover:bg-blue-950/40 text-foreground",
+            destructive: "bg-red-500/80 text-white hover:bg-red-500/90 backdrop-blur-sm",
         }
 
         const sizes = {

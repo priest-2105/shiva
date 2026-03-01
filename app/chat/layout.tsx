@@ -7,14 +7,19 @@ export default function ChatLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div className="flex h-screen overflow-hidden bg-background">
-            {/* Sidebar - Hidden on mobile, can be toggled later */}
-            <aside className="hidden md:flex">
+        <div className="flex h-screen overflow-hidden bg-background relative">
+            {/* Frozen ambient orbs */}
+            <div className="pointer-events-none absolute -top-32 left-1/3 w-[500px] h-[500px] rounded-full bg-blue-400/10 dark:bg-blue-500/8 blur-[120px]" />
+            <div className="pointer-events-none absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-cyan-400/10 dark:bg-cyan-400/6 blur-[100px]" />
+            <div className="pointer-events-none absolute top-1/2 left-0 w-64 h-64 rounded-full bg-sky-300/8 dark:bg-sky-400/5 blur-[80px]" />
+
+            {/* Sidebar */}
+            <aside className="hidden md:flex relative z-10">
                 <ChatSidebar />
             </aside>
 
             {/* Main Content Area */}
-            <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
+            <main className="flex-1 flex flex-col min-w-0 overflow-hidden relative z-10">
                 <ChatHeader />
                 {children}
             </main>

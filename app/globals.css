@@ -1,50 +1,42 @@
 @import "tailwindcss";
 
+/* Switch dark mode to class-based so JS can control it */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  /* Brand Colors */
-  --primary: #FF6B35;
-  /* Burnt Orange */
-  --primary-hover: #FF9A76;
-  /* Soft Coral */
-  --secondary: #E0E0E0;
-  /* Light Gray */
-  --tertiary: #D64536;
-  /* Deep Red */
+  /* Ice / Frost Palette */
+  --primary: #60A5FA;
+  --primary-hover: #93C5FD;
+  --secondary: rgba(186, 230, 255, 0.45);
+  --tertiary: #38BDF8;
 
   /* Backgrounds */
-  --background: #FAFAFA;
-  /* Off-White */
-  --card-bg: #FFFFFF;
-  /* White */
+  --background: #EFF6FF;
+  --card-bg: rgba(255, 255, 255, 0.65);
 
   /* Text */
-  --foreground: #1A1A1A;
-  /* Charcoal */
-  --text-secondary: #555555;
-  /* Dark Gray */
-  --text-accent: #FF6B35;
-  /* Burnt Orange */
+  --foreground: #0F172A;
+  --text-secondary: #475569;
+  --text-accent: #3B82F6;
 
   /* Borders */
-  --border: #E0E0E0;
-  /* Light Gray */
+  --border: rgba(147, 197, 253, 0.55);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1A1A1A;
-    /* Charcoal */
-    --card-bg: #242424;
-    /* Slightly lighter charcoal */
-    --foreground: #FAFAFA;
-    /* Off-White */
-    --text-secondary: #A0A0A0;
-    /* Lighter Gray */
-    --border: #333333;
-    /* Darker Gray */
+.dark {
+    --primary: #60A5FA;
+    --primary-hover: #93C5FD;
+    --secondary: rgba(10, 25, 60, 0.75);
+    --tertiary: #38BDF8;
 
-    /* Adjust primary for dark mode if needed, but Burnt Orange usually pops well */
-  }
+    --background: #020B18;
+    --card-bg: rgba(4, 16, 38, 0.8);
+
+    --foreground: #E0F2FE;
+    --text-secondary: #94A3B8;
+    --text-accent: #7DD3FC;
+
+    --border: rgba(56, 100, 163, 0.4);
 }
 
 @theme inline {
